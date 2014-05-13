@@ -1,0 +1,15 @@
+FIELDSET {border:1px solid #000;   background-color: #FFF; width: 700px; FONT-FAMILY: "Trebuchet MS", Trebuchet, Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 10px; text-align: left;      }
+H1.SaltoDePagina   {    PAGE-BREAK-AFTER: always }
+legend { 
+    margin: 0 0 5px 10px; height: 24px;  line-height: 24px;  width:187px;  padding: 0 5px;
+    background: #fff;
+    font-size: 10px;
+    font-weight: bold;
+}
+table td { padding-bottom: 5px; padding-top: 5px; font-size: 10px;}        
+p { padding-bottom: 5px; padding-top: 5px; text-align: center; font-size: 10px; font-weight: bold; font-family: "Trebuchet MS", Trebuchet, Verdana, Arial, Helvetica, sans-serif; }
+cite { color: #CCC; font-size: 9px;}
+.oc {  color: grey;
+       font-size: 12px;
+}
+cite { font-size: 12px;}

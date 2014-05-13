@@ -1,0 +1,14 @@
+# Activar RewriteEngine
+RewriteEngine on
+
+# Reescribir la URL solicitada por el usuario
+#   Entrada:  pendientes/identificacion
+#   Salida: pendientes/tareas.php?id=identificacion
+
+RewriteRule ^pendientes/([a-zA-Z0-9]+)$ pendientes/tareas.php?id=$1
+
+# Reescribir la URL solicitada por el usuario
+#   Entrada:  cerrar/identificacion
+#   Salida: cerrar/index.php?id=identificacion
+
+RewriteRule ^cerrar/([a-zA-Z0-9]+)$ cerrar/index.php?id=$1

@@ -1,0 +1,34 @@
+body {padding:0; margin:0; height:100%; width:100%;}
+
+/* Overlay */
+#contact-overlay {background-color:#000; cursor:wait;}
+
+/* Container */
+#objeto-container {width:450px; font: normal 12px verdana, arial, helvetica, sans-serif;  text-align:left; height: 800px;}
+#objeto-container .contact-content {background-color:#fff; color:#000; height:140px;}
+#objeto-container h1 {color:#5789D5; margin:0; padding:0 0 10px 15px; font-size:15px; text-align:left; text-decoration: none; font-family: verdana, arial, helvetica, sans-serif; }
+#objeto-container .contact-loading {position:absolute; background:url(../img/contact/close.gif) no-repeat; z-index:8000; height:55px; width:54px; margin:-14px 0 0 170px; padding:0;height:155px;}
+#objeto-container .contact-message {text-align:center; height:155px;}
+#objeto-container .contact-error {width:92%; font-size:.8em; background:#fff; border:2px solid #ccc; font-size:0.8em; font-weight:bold; margin:0 auto; padding:2px; height:155px;}
+#objeto-container br {clear:both;}
+#objeto-container form {padding:0; margin:0;}
+#objeto-container label {clear:left; display:block; width:100px; float:left; text-align:right; padding-right:4px;}
+#objeto-container .contact-input {font: normal 12px verdana, arial, helvetica, sans-serif;  float:left; padding:2px; margin:2px; background:#eee; border:1px solid #000; width:300px;}
+#objeto-container textarea {height:114px; font-size:.9em;}
+#objeto-container .contact-cc {font-size:.9em; cursor:default;}
+#objeto-container .contact-top {height:20px; background:#fff; padding:0; margin:0;}
+#objeto-container .contact-bottom {padding-top: 20px; height:13px; background:#fff; font-size:.7em; text-align:center;}
+#objeto-container .contact-bottom a,
+#objeto-container .contact-bottom a:link,
+#objeto-container .contact-bottom a:active,
+#objeto-container .contact-bottom a:visited {position:relative; top:-4px; text-decoration:none; color:#666;}
+#objeto-container .contact-bottom a:hover {color:#888;}
+#objeto-container .contact-button {margin:4px 0 0 4px; cursor:pointer; height:24px; border:0; font-size:1em; font-weight:bold; color:#fff; text-align:center; vertical-align:middle; width: 100px; }
+#objeto-container .contact-button:hover {color: #FFF; background-color: #4284B0;}
+#objeto-container .contact-send {color: #FFF; background-color: #4284B0; margin: 0; font: bold 1em Arial, Sans-serif; border: 1px solid #CCC; background: #FFF; padding: 2px 3px; color: #4284B0;}
+#objeto-container .contact-cancel {color: #FFF; background-color: #4284B0; margin: 0; font: bold 1em Arial, Sans-serif; border: 1px solid #CCC; background: #FFF; padding: 2px 3px; color: #4284B0;}
+#objeto-container a.modalCloseX,
+#objeto-container a.modalCloseX:link,
+#objeto-container a.modalCloseX:active,
+#objeto-container a.modalCloseX:visited {text-decoration:none; font-weight:bold; font-size:1.2em; position:absolute; top:-4px; right:6px; color:#000;}
+#objeto-container a.modalCloseX:hover {color:#9bb3b3;}

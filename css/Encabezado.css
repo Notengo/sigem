@@ -1,0 +1,91 @@
+/* *******************************************
+ ELEMENTOS GENERALES
+********************************************/ 
+
+/* ----  CUERPO DE LA PAGINA  ---- */
+body {
+   margin: 0;
+   padding: 0;
+   font: .75em/1.5em Verdana, Tahoma, Helvetica, sans-serif;
+   color: black;
+   background: #A9BAC3 url(img_plantilla/bg.jpg) repeat-x;
+   text-align: center;
+}
+
+/* para mostrar la fecha de hoy en la pagina inicial */
+.fechahoy {
+   position: absolute;
+   right: 0;
+   top: 0;
+   font-weight: normal;
+   color: #0000CC;
+   text-decoration: none;
+   font-family: Verdana, Arial, Helvetica, sans-serif;
+   border-color: #33FF33 #66FF66;
+   font-size: 10pt;
+}
+
+/* ---------------------------- */ /* ---- **********************       LAYOUT *********************** ---- */
+
+#wrap {background: #FFF; width: 1060px; margin: 0 auto; text-align: left;}
+
+#content-wrap {clear: both; margin: 0; padding: 0; background: #FFF;}
+
+/* ----  header  ---- */
+
+#header {
+   position: relative;
+   height: 85px;
+   background: url(img_plantilla/headerbg.jpg) repeat-x 0% 100%;
+}
+
+#header h1#logo {
+   position: absolute;
+   margin: 0;
+   padding: 0;
+   font: bolder 4.1em 'Trebuchet MS', Arial, Sans-serif;
+   letter-spacing: -2px;
+   text-transform: lowercase;
+   top: 0;
+   left: 5px;
+   color: #FFFFFF;
+   text-decoration: none;
+}
+
+#header .gray {color: #BFBFBF;}
+
+#header h2#slogan {
+   position: absolute;
+   top: 37px;
+   left: 95px;
+   color: #666666;
+   text-indent: 0px;
+   font: bold 11px Tahoma, 'trebuchet MS', Sans-serif;
+   text-transform: none;
+   color: #FFFFFF;
+}
+
+#header #liveclock {
+   position: absolute;
+   margin-right: 5px; padding-top: 1px;
+   font-weight: normal;
+}
+/* VOY POR ACA */
+
+/* ----  Footer  ---- */
+/* Esto lo tengo que sacar de aca */
+
+#footer {clear: both; color: #FFF; background: #A9BAC3; border-top: 5px solid #568EB6; margin: 0; padding: 0; height: 50px; font-size: 95%;}
+#footer a {text-decoration: none; font-weight: bold; color: #FFF;}
+#footer .footer-left{float: left; width: 65%;}
+#footer .footer-right{float: right; width: 30%;}
+
+/* ----  menu tabs  ---- */
+#header ul {z-index: 999999; position: absolute; margin: 0; padding: 0; list-style: none; right: 0; bottom: 6px !important; bottom: 5px; font: bold 13px Arial, 'Trebuchet MS', Tahoma, verdana, sans-serif;}
+#header li {display: inline; margin: 0; padding: 0;}
+#header a {float: left; background: url(img_plantilla/tableft.gif) no-repeat left top; margin: 0; padding: 0 0 0 4px; text-decoration: none;}
+#header a span {float: left; display: block; background: url(img_plantilla/tabright.gif) no-repeat right top; padding: 6px 15px 3px 8px; color: #FFF;}
+#header a:hover {background-position: 0% -42px;}
+#header a:hover span {background-position: 100% -42px; color: #FFF;}
+#header #current a {background-position: 0% -42px; color: #FFF;}
+#header #current a span {background-position: 100% -42px; color: #FFF;}
