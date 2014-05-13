@@ -22,10 +22,12 @@ $oMysql = ActiveRecordAbstractFactory::getActiveRecordFactory(ActiveRecordAbstra
 $oMysql->conectar();
 
 $criterio = $orden = '';
-if (isset($_GET['criterio_ordenar_por']))
+if (isset($_GET['criterio_ordenar_por'])){
     $criterio = fn_filtro($_GET['criterio_ordenar_por']); /// porque quiero ordenar
-if (isset($_GET['criterio_orden']))
+}
+if (isset($_GET['criterio_orden'])){
     $orden = fn_filtro($_GET['criterio_orden']); /// orden en que se van a mostrar los resultados
+}
 
 $oMysqlOrden = $oMysql->getOrdenActiveRecord();
 $oOrden = new Orden();
@@ -136,7 +138,7 @@ if(count($aOrden)<>0) {
             $oOficina->set_ofcodi($value->getOfcodi());
             $oOficina=$oMysqlOficexpe->findCompleta($oOficina);    
             $nombre = html_entity_decode($oOficina->get_nombre())." - ".$oOficina->get_tipo()." de ".$oOficina->get_codloc();
-            echo htmlentities($nombre);
+            echo utf8_encode($nombre);
         ?></td>
         <td><?php if($value->getIdEquipo()) {?>
             <?php
@@ -144,7 +146,7 @@ if(count($aOrden)<>0) {
             $oEquipo = $oMysqlEquipo->findPorId($oEquipo);
             $oNomencaldor->setCod_eq($oEquipo->getCod_eq());
             $oNomencaldor = $oMysqlNomencla->findId($oNomencaldor);
-            echo htmlentities($oNomencaldor->getDes_eq());
+            echo utf8_encode($oNomencaldor->getDes_eq());
             ?>
             <!--<a href="../consultaTabEquipo/otAsociadas.php?id=<?//=$oEquipo->getId();?>" <img src="../images/verdetalle.png" alt="Imprimir" title="Ver ficha equipo"></a>-->
         <?php }?>

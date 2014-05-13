@@ -94,7 +94,7 @@ require_once '../Clases/ActiveRecord/MysqlOrden.php';
                             $oAccionVo = new AccionValueObject();
                             $oAccionVo = $oMysqlAccion->findAll();
                             foreach ($oAccionVo as $accion) {
-                                echo "<option value='".$accion->getIdAccion()."'>".htmlentities($accion->getDescripcion())."</option>";
+                                echo "<option value='".$accion->getIdAccion()."'>".  utf8_encode($accion->getDescripcion())."</option>";
                             }
                             ?>
                         </select>
@@ -111,7 +111,7 @@ require_once '../Clases/ActiveRecord/MysqlOrden.php';
                                 $oAccionVo = new AccionValueObject();
                                 $oAccionVo = $oMysqlAccion->findAll();
                                 foreach ($oAccionVo as $accion) {
-                                    echo "<option value='".$accion->getIdAccion()."'>".htmlentities($accion->getDescripcion())."</option>";
+                                    echo "<option value='".$accion->getIdAccion()."'>".utf8_encode($accion->getDescripcion())."</option>";
                                 }
                                 ?>
                             </select>
@@ -135,7 +135,7 @@ require_once '../Clases/ActiveRecord/MysqlOrden.php';
                             <option value='0'>Seleccione un repuesto</option>
                         <?php
                         foreach ($oRepuestoVo as $valorR) {
-                            echo "<option value='".$valorR->getIdRepuesto()."'>".htmlentities($valorR->getDescripcion())."</option>";
+                            echo "<option value='".$valorR->getIdRepuesto()."'>".utf8_encode($valorR->getDescripcion())."</option>";
                         }
                         ?>
                         </select>

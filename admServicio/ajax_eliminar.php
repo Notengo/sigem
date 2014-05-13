@@ -4,7 +4,7 @@ require_once '../usuarios/aut_verifica.inc.php';
 
 require_once '../ClasesBasicas/ActiveRecordAbstractFactory.php';
 require_once '../Clases/ActiveRecord/MysqlServicioActiveRecord.php';
-require_once 'funciones.php';
+require_once '../includes/funciones.php';
 
 $oMysql = ActiveRecordAbstractFactory::getActiveRecordFactory(ActiveRecordAbstractFactory::MYSQL);
 $oMysql->conectar();

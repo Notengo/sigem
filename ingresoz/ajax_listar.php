@@ -87,7 +87,7 @@ if(count($aOrden)<>0) {
 
         $oOficina->set_ofcodi($value->getOfcodi());
         $oOficina=$oMysqlOficexpe->find($oOficina);            
-        echo htmlentities($oOficina->get_nombre()).": ";                            
+        echo utf8_encode($oOficina->get_nombre()).": ";                            
 
         $oProblema->setId($value->getIdProblema());
         $oProblema=$oMysqlProblema->find($oProblema);  

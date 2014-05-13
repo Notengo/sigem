@@ -9,7 +9,7 @@ header ("Pragma: no-cache"); //PARANOIA, NO GUARDAR EN CACHE
 
 require_once '../ClasesBasicas/ActiveRecordAbstractFactory.php';
 include_once "../ClasesBasicas/PHPPaging.lib.php";
-require_once 'funciones.php';
+require_once '../includes/funciones.php';
 
 $oMysql = ActiveRecordAbstractFactory::getActiveRecordFactory(ActiveRecordAbstractFactory::MYSQL);
 $oMysql->conectar();
@@ -48,13 +48,13 @@ if($paging->numTotalRegistros()>0) {
             while ($rs_res = $paging->fetchResultado()) {            
             ?>
             <tr>                
-                <td style="text-align: left;"><?=htmlentities($rs_res['descripcion'])?></td>                
+                <td style="text-align: left;"><?=utf8_encode($rs_res['descripcion'])?></td>                
                 <td>
                     <a href="javascript: fn_mostrar_frm_modificar(<?=$rs_res['id']?>);"><img src="../css/img_estilos/page_edit.png" /></a>
                     <a href="javascript: fn_eliminar(<?=$rs_res['id']?>);"><img src="../css/img_estilos/cancela.png" /></a>
                 </td>            
             </tr>
-        <? } ?>        
+        <?php } ?>        
         </tbody>
     </table>
     <br/>

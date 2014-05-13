@@ -18,23 +18,23 @@ $sql = "SELECT * FROM sintoma as s";
 if($_GET['criterio_usu_per'] <> '') {
     $sql .= " WHERE s.descripcion like '%".fn_filtro(substr(utf8_decode($_GET['criterio_usu_per']), 0, 16))."%' ";
 }
-if (isset($_GET['criterio_ordenar_por']))
+if (isset($_GET['criterio_ordenar_por'])) {
     $sql .= sprintf(" order by %s %s", fn_filtro($_GET['criterio_ordenar_por']), fn_filtro($_GET['criterio_orden']));
-else
+} else {
     $sql .= " order by id desc";
-
+}
 
 $paging = new PHPPaging;
 $paging->agregarConsulta($sql); 
 $paging->div('div_listar');
 $paging->modo('publicacion'); 
-if (isset($_GET['criterio_mostrar']))
-        $paging->porPagina(fn_filtro((int)$_GET['criterio_mostrar']));
+if (isset($_GET['criterio_mostrar'])) {
+    $paging->porPagina(fn_filtro((int)$_GET['criterio_mostrar']));
+}
 $paging->verPost(true);
 $paging->mantenerVar("criterio_usu_per", "criterio_ordenar_por", "criterio_orden", "criterio_mostrar");
 $paging->ejecutar();
-
-if($paging->numTotalRegistros()>0) {
+if($paging->numTotalRegistros() > 0) {
     ?>
     <table id="grilla" class="lista" width="1000px">
         <thead>
@@ -48,13 +48,13 @@ if($paging->numTotalRegistros()>0) {
             while ($rs_res = $paging->fetchResultado()) {            
             ?>
             <tr>                
-                <td style="text-align: left;"><?=htmlentities($rs_res['descripcion'])?></td>                
+                <td style="text-align: left;"><?php echo utf8_encode($rs_res['descripcion']); ?></td>                
                 <td>
                     <a href="javascript: fn_mostrar_frm_modificar(<?=$rs_res['id']?>);"><img src="../css/img_estilos/page_edit.png" /></a>
                     <a href="javascript: fn_eliminar(<?=$rs_res['id']?>);"><img src="../css/img_estilos/cancela.png" /></a>
                 </td>            
             </tr>
-        <? } ?>        
+        <?php } ?>        
         </tbody>
     </table>
     <br/>
@@ -63,7 +63,6 @@ if($paging->numTotalRegistros()>0) {
 } else {
     echo "No se encontraron registros" ;
 }    ?>
-<br/><br/>
-Total de registros encontrados: <?php echo $paging->numTotalRegistros();?><br />                                       
-
-                                 
+<br/>
+<br/>
+Total de registros encontrados: <?php echo $paging->numTotalRegistros();?><br />

@@ -4,25 +4,30 @@ require_once '../usuarios/aut_verifica.inc.php';
 require_once '../ClasesBasicas/ConsultaBD.php';
 include_once 'funciones.php';
 
-if(isset($_GET['getOficinaByLetters']) && isset($_GET['letters'])){
+if(isset($_GET['getListadoByLetters']) && isset($_GET['letters'])){
     $letters = $_GET['letters'];
     $con = new ConsultaBD();
-    $con->Conectar();
+    $con->Conectar();      
+
     $letters = preg_replace("/[^a-z0-9 ]/si","",$letters);
-    $sql = "select ofcodi, nombre, localiza, tipo, descri from oficexpe ";
-    $sql .=" left join localida on (oficexpe.coddpto=localida.coddepto and oficexpe.codloc=localida.codloc)";
-    $sql .=" where (nombre like '%".$letters."%' or ofcodi like '%".$letters."%')";
+
+    $sql = "SELECT ofcodi, nombre, localiza, tipo, descri "
+            . "FROM oficexpe "
+            . "LEFT OUTER JOIN localida "
+            . "ON (oficexpe.coddpto=localida.coddepto AND oficexpe.codloc=localida.codloc) "
+            . "WHERE (nombre LIKE '%".$letters."%' OR ofcodi LIKE '%".$letters."%')";
     $con->executeQuery($sql);
+
     while($inf = $con->getFetchArray()){
-        $cod=$inf["ofcodi"] ;
-        $tipo = "";
-        if($inf['tipo']<>null) {
-            $tipo .=" - ".tipo_establec($inf['tipo']);
-            if($inf['localiza']<>null)
-                $tipo .=" - ".$inf['localiza']." ";
-        }
-        $nombre =htmlentities($inf["nombre"]." ".$tipo);
-        echo $cod."###".$cod." ".$nombre."|";
+            $cod=$inf['ofcodi'] ;
+            $tipo = "";
+            if($inf['tipo']!='') {
+                $tipo .= " - " . tipo_establec($inf['tipo']);
+                if($inf['localiza']!='')
+                    $tipo .=" - ".$inf['localiza']." ";
+            }
+            $nombre = htmlentities($inf["nombre"]." ".$tipo);
+            echo $cod."###".$cod." ".$nombre."|";
     }
     $con->Close();
 }

@@ -6,7 +6,7 @@ require_once '../usuarios/aut_verifica.inc.php';
 require_once '../ClasesBasicas/ActiveRecordAbstractFactory.php';
 require_once '../Clases/ActiveRecord/MysqlOrdenActiveRecord.php';
 include_once "../ClasesBasicas/PHPPaging.lib.php";
-require_once 'funciones.php';
+require_once '../includes/funciones.php';
 
 header ("Expires: Fri, 14 Mar 1980 20:53:00 GMT"); //la pagina expira en fecha pasada
 header ("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT"); //ultima actualizacion ahora cuando la cargamos
@@ -92,9 +92,9 @@ while ($rs_res = $paging->fetchResultado()) {
     $i++;
     ?>
     <tr ><td align="center"><?=$rs_res['nro']?></td>                
-        <td><?=htmlentities($rs_res['des_eq'])?></td>
-        <td><?=htmlentities($rs_res['marca']." | ".$rs_res['modelo']." | ".$rs_res['nroSerie'])?></td>
-        <td><?=htmlentities($rs_res['oficina']." ".$rs_res['departamento']." ".$rs_res['localidad'])?></td>
+        <td><?php echo utf8_encode($rs_res['des_eq']); ?></td>
+        <td><?php echo utf8_encode($rs_res['marca']." | ".$rs_res['modelo']." | ".$rs_res['nroSerie']); ?></td>
+        <td><?php echo utf8_encode($rs_res['oficina']." ".$rs_res['departamento']." ".$rs_res['localidad']); ?></td>
         <td><?=calculaedad($rs_res['edad'])?></td>        
     </tr>
         <?php }  

@@ -16,7 +16,7 @@ require_once '../usuarios/aut_verifica.inc.php';
 <div id="wrap">
    <div id="header">
       <h1 id="logo">orden<span class="gray">de</span>trabajo</h1>
-      <h2 id="slogan">Ministerio de Salud de Entre R&iacute;os</h2>
+      <h2 id="slogan">Ministerio de Salud de Entre R&iacute;os - Dpto. Bioingenieria</h2>
       <br />
       <span id="liveclock" >         
       </span>
@@ -32,10 +32,10 @@ require_once '../usuarios/aut_verifica.inc.php';
         <li ><a href="<?php echo '../inicio/index.php'; ?>" ><span>Inicio</span></a></li>   
          <li id="current" >
              <?php if($_SESSION['usuario_nivel']=='Z') { ?>
-                <a href="<?php echo '../ingresoz/index.php'; ?>"><span>Orden de Trabajo</span></a></li>
+                <a href="<?php echo '../ingresoz/index.php'; ?>"><span>Orden de Trabajo</span></a> </li>         
          <? } else {
               ?>
-            <!--<a href="<?php //echo '../ingreson/index.php'; ?>"><span>Incidentes</span></a></li>-->
+            <!--<a href="<?php // echo '../ingreson/index.php'; ?>"><span>Incidentes</span></a> </li>-->
         <?php
          }
          ?>

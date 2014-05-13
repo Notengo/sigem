@@ -110,7 +110,7 @@ class MysqlServicioActiveRecord implements ActiveRecord{
     * @return boolean 
     */
    public function findAll() {
-      $sql = "SELECT * from servicio where fechaBaja='0000-00-00 00:00:00' order by descripcion";            
+      $sql = "SELECT * from servicio where fechaBaja='0000-00-00 00:00:00' order by descripcion";
       $resultado = mysql_query($sql);
       if($resultado){
          $aServicio = array();

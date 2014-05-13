@@ -59,7 +59,7 @@ $oMysql->conectar();
                         <br/>
                         <?php $tabindex++; ?>
                         <label for="establecimiento" class="detalle">Dependencia:</label>
-                        <input type="text" name="establecimiento" id="establecimiento" class="imputbox" onkeyup="ajax_showOptionsOficina(this,'getOficinaByLetters',event)"
+                        <input type="text" name="establecimiento" id="establecimiento" class="imputbox" onkeyup="ajax_showOptionsOficina(this,'getListadoByLetters',event)"
                                maxlength="150" size="75" onFocus="this.style.color='blue';"
                                onBlur="this.style.color='#333333';" value="" tabindex="<?php echo $tabindex;?>"/>*
                         <input type="hidden" id="establecimiento_hidden" name="establecimiento_ID" value="" />

@@ -9,7 +9,7 @@ header ("Pragma: no-cache"); //PARANOIA, NO GUARDAR EN CACHE
 
 require_once '../ClasesBasicas/ActiveRecordAbstractFactory.php';
 include_once "../ClasesBasicas/PHPPaging.lib.php";
-require_once 'funciones.php';
+require_once '../includes/funciones.php';
 
 $oMysql = ActiveRecordAbstractFactory::getActiveRecordFactory(ActiveRecordAbstractFactory::MYSQL);
 $oMysql->conectar();
@@ -59,8 +59,8 @@ if($paging->numTotalRegistros()>0) {
             ?>
             <tr>
                 <td><?=$rs_res['nro']?></td>
-                <td style="text-align: left;"><?=htmlentities($rs_res['des_eq'])?></td>
-                <td style="text-align: left;"><?php echo htmlentities($rs_res['marca'])." ".htmlentities($rs_res['modelo'])." ".$rs_res['nroSerie']; ?></td>            
+                <td style="text-align: left;"><?=utf8_encode($rs_res['des_eq'])?></td>
+                <td style="text-align: left;"><?php echo utf8_encode($rs_res['marca'])." ".utf8_encode($rs_res['modelo'])." ".$rs_res['nroSerie']; ?></td>            
                 <td style="text-align: left;"><?=$rs_res['ubicacion']."<br/>".$rs_res['servicio'];
                 if($rs_res['subServicio'])
                     echo " - Sala: ".$rs_res['subServicio']?>
@@ -70,7 +70,7 @@ if($paging->numTotalRegistros()>0) {
                     <a href="javascript: fn_mostrar_frm_eliminar(<?=$rs_res['nro']?>);"><img src="../css/img_estilos/cancela.png" alt="Eliminar" title="Eliminar equipo" /></a>                        
                 </td>            
             </tr>
-        <? } ?>        
+        <?php } ?>
         </tbody>
     </table>
     <br/>

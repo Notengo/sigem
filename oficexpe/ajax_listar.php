@@ -9,7 +9,7 @@ header ("Pragma: no-cache"); //PARANOIA, NO GUARDAR EN CACHE
 
 require_once '../ClasesBasicas/ActiveRecordAbstractFactory.php';
 include_once "../ClasesBasicas/PHPPaging.lib.php";
-require_once 'funciones.php';
+require_once '../includes/funciones.php';
 
 $oMysql = ActiveRecordAbstractFactory::getActiveRecordFactory(ActiveRecordAbstractFactory::MYSQL);
 $oMysql->conectar();
@@ -53,15 +53,15 @@ if($paging->numTotalRegistros()>0) {
         ?>
         <tr id="tr_<?=$rs_per['ofcodi']?>">
             <td><?=$rs_per['ofcodi']?></td>
-            <td style="text-align: left;"><?=htmlentities($rs_per['nombre'])?></td>
+            <td style="text-align: left;"><?php echo utf8_encode($rs_per['nombre']); ?></td>
             <td style="text-align: left;"><?php
                 if($rs_per['domicilio']<>'')
-                    echo htmlentities($rs_per['domicilio']).", ";
-                echo htmlentities($rs_per['localidad']);
+                    echo utf8_encode($rs_per['domicilio']).", ";
+                echo utf8_encode($rs_per['localidad']);
                 if($rs_per['departamento'])
-                    echo " (".htmlentities($rs_per['departamento']).")"
+                    echo " (".utf8_encode($rs_per['departamento']).")";
                         ?></td>
-            <td style="text-align: left;"><?=htmlentities($rs_per['localiza'])?></td>
+            <td style="text-align: left;"><?php echo utf8_encode($rs_per['localiza']); ?></td>
             <td style="text-align: left;"><?php
             switch($rs_per['tipo']) {
                     case 'H': echo "Hospital";break;
@@ -74,7 +74,7 @@ if($paging->numTotalRegistros()>0) {
             <td><a href="javascript: fn_mostrar_frm_modificar(<?=$rs_per['ofcodi']?>);"><img src="../css/img_estilos/page_edit.png" /></a>
             <a href="javascript: fn_eliminar(<?=$rs_per['ofcodi']?>);"><img src="../css/img_estilos/cancela.png" /></a></td>            
         </tr>
-    <? } ?>        
+    <?php } ?>
     </tbody>
 </table>
 <br/>

@@ -9,7 +9,7 @@ header ("Pragma: no-cache"); //PARANOIA, NO GUARDAR EN CACHE
 
 require_once '../ClasesBasicas/ActiveRecordAbstractFactory.php';
 include_once "../ClasesBasicas/PHPPaging.lib.php";
-require_once 'funciones.php';
+require_once '../includes/funciones.php';
 
 $oMysql = ActiveRecordAbstractFactory::getActiveRecordFactory(ActiveRecordAbstractFactory::MYSQL);
 $oMysql->conectar();
@@ -50,9 +50,9 @@ if($paging->numTotalRegistros()>0) {
             while ($rs_res = $paging->fetchResultado()) {            
             ?>
             <tr>                
-                <td style="text-align: left;"><?=htmlentities($rs_res['nombre'])?></td>
-                <td style="text-align: left;"><?=htmlentities($rs_res['direccion'])?></td>
-                <td style="text-align: left;"><?php echo htmlentities($rs_res['telefono']);
+                <td style="text-align: left;"><?php echo utf8_encode($rs_res['nombre']); ?></td>
+                <td style="text-align: left;"><?php echo utf8_encode($rs_res['direccion']); ?></td>
+                <td style="text-align: left;"><?php echo utf8_encode($rs_res['telefono']);
                 if($rs_res['fax']<>'')
                     echo " | ".htmlentities($rs_res['fax']);
                 ?></td>            
@@ -66,7 +66,7 @@ if($paging->numTotalRegistros()>0) {
                     <a href="javascript: fn_eliminar(<?=$rs_res['id']?>);"><img src="../css/img_estilos/cancela.png" /></a>
                 </td>            
             </tr>
-        <? } ?>        
+        <?php } ?>
         </tbody>
     </table>
     <br/>

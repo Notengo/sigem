@@ -142,8 +142,9 @@
 	}
 
         function ajax_showOptionsOficina(inputObj,paramToExternalFile,e) {
+//            var ajax_list_externalFile = 'listado.php';	// Path to external file
             var ajax_list_externalFile = 'lista_oficinas.php';	// Path to external file
-            var ajax_list_externalFile = '../consultaLocalizacion/lista_oficinas.php';	// Path to external file
+//            var ajax_list_externalFile = '../consultaLocalizacion/lista_oficinas.php';	// Path to external file
             if(e.keyCode === 13 || e.keyCode === 9)return;
             if(ajax_list_currentLetters[inputObj.name] === inputObj.value)return;
             if(!ajax_list_cachedLists[paramToExternalFile])ajax_list_cachedLists[paramToExternalFile] = new Array();

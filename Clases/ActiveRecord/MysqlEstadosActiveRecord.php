@@ -53,7 +53,7 @@ class MysqlEstadosActiveRecord implements ActiveRecord {
      * @return EstadosValueObject Devuelve un registro correspondiente al id o a la descripcion buscada.
      */
     public function find($oValueObject) {
-        $sql = "SELECT * FROM estados where ";
+        $sql = "SELECT * FROM estados WHERE mant IS NULL ";
         if ($oValueObject->getId() !== ''){
             $sql .= "id = " . $oValueObject->getId();
         } elseif ($oValueObject->getDescripcion() !== ''){
@@ -74,7 +74,7 @@ class MysqlEstadosActiveRecord implements ActiveRecord {
      * @return EstadosValueObject
      */
     public function findAll() {
-        $sql = "SELECT * FROM estados order by descripcion;";
+        $sql = "SELECT * FROM estados WHERE mant IS NULL ORDER BY descripcion;";
         $resultado = mysql_query($sql);
         if($resultado){
             $aValueObject = array();

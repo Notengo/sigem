@@ -1,23 +1,16 @@
-<?
-
+<?php
 function fn_filtro($cadena) {
-	if(get_magic_quotes_gpc() != 0) {
-		$cadena = stripslashes($cadena);
-	}
-	return mysql_real_escape_string($cadena);
+    if(get_magic_quotes_gpc() != 0) {
+            $cadena = stripslashes($cadena);
+    }
+    return mysql_real_escape_string($cadena);
 }
 
-/////////////////////////////////////////////////
-function tipo_establec($tipo)
-{
-$tip="";
-switch($tipo)
-{
-	case 'H': $tip= "Hospital";break;
-	case 'C': $tip= "Centro de Salud";break;
-	case 'O': $tip= "Oficina";break;
+function tipo_establec($tipo) {
+    switch($tipo) {
+        case 'H': $tipo = "Hospital"; break;
+        case 'C': $tipo = "Centro de Salud"; break;
+        case 'O': $tipo = "Oficina"; break;
+    }
+    return $tipo;
 }
-return $tip;
-}
-
-?>

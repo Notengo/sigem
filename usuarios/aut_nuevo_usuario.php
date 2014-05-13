@@ -5,7 +5,6 @@ if ( $_SESSION['usuario_nivel'] != "Z") {
    echo "<div align=center class=error>Acceso Incorrecto</div>";
    exit;
 }
-
 // Se requieren los script para acceder a los datos de la DB
 require_once '../ClasesBasicas/ActiveRecordAbstractFactory.php';
 require_once '../Clases/ActiveRecord/MysqlAgentesActiveRecord.php';
@@ -14,7 +13,6 @@ $oAgente = new AgentesValueObject();
 $dni = $nombre = $apellido = $direccion = "";
 $existe = 0;
 if(isset($_POST['dni'])) {
-    
     $oMysql = ActiveRecordAbstractFactory::getActiveRecordFactory(ActiveRecordAbstractFactory::MYSQL);
     $oMysql->conectar();  
     
@@ -68,56 +66,56 @@ if(isset($_POST['dni'])) {
                               <td>DNI:</td>
                               <td>
                                   <input type="text" name="dni" id="dni" class="imputbox" maxlength="150" size="10" onFocus="this.style.color='blue'" onBlur="this.style.color='#333333'" onKeyPress="return esInteger(event)" value="<?php echo $dni?>">*
-                                 <input name="busco2" type="button"  class="button" value="&nbsp;&nbsp;Buscar&nbsp;&nbsp;" onClick="pedirDatos()">&nbsp;&nbsp;&nbsp;<div style="display: inline" id="cargando"></div>                                 
+                                 <input name="busco2" type="button"  class="button" value="&nbsp;&nbsp;Buscar&nbsp;&nbsp;" onClick="pedirDatos();">&nbsp;&nbsp;&nbsp;<div style="display: inline" id="cargando"></div>                                 
                                  <div style="display: inline" id="valida_dni" class="falta_dato"></div>
                               </td>                             
                            </tr>
                            <tr>
                               <td>Nombre:</td>
                               <td>
-                                  <input type="text" name="nombre" class="imputbox" maxlength="50" size="30" onFocus="this.style.color='blue'" onBlur="this.style.color='#333333'" <? echo ($dni != 0) ? "":"readonly" ?> value="<?php echo $nombre ?>">
+                                  <input type="text" name="nombre" class="imputbox" maxlength="50" size="30" onFocus="this.style.color='blue'" onBlur="this.style.color='#333333'" <?php echo ($dni != 0) ? "":"readonly" ?> value="<?php echo $nombre ?>">
                                  <div id="nom" class="falta_dato" style="display:inline"></div>
                               </td>
                            </tr>
                            <tr>
                               <td>Apellido:</td>
                               <td>
-                                 <input type="text" name="apellido" class="imputbox" maxlength="50" size="30" onFocus="this.style.color='blue'" onBlur="this.style.color='#333333'" <? echo ($dni != 0) ? "":"readonly" ?> value="<?php echo $apellido ?>">
+                                 <input type="text" name="apellido" class="imputbox" maxlength="50" size="30" onFocus="this.style.color='blue'" onBlur="this.style.color='#333333'" <?php echo ($dni != 0) ? "":"readonly" ?> value="<?php echo $apellido ?>">
                                  <div id="ape" class="falta_dato" style="display:inline"></div>
                               </td>
                            </tr>
                            <tr>
                               <td>Direccion:</td>
                               <td>
-                                 <input type="text" name="direccion" class="imputbox" maxlength="150" size="30" onFocus="this.style.color='blue'" onBlur="this.style.color='#333333'" <? echo ($dni != 0) ? "":"readonly" ?> value="<?php echo $direccion ?>">
+                                 <input type="text" name="direccion" class="imputbox" maxlength="150" size="30" onFocus="this.style.color='blue'" onBlur="this.style.color='#333333'" <?php echo ($dni != 0) ? "":"readonly" ?> value="<?php echo $direccion ?>">
                                  <div id="dir" class="falta_dato" style="display:inline"></div>
                               </td>
                            </tr>
                            <tr>
                               <td>Identificacion:</td>
                               <td>
-                                 <input type="text" name="usuarionombre" class="imputbox" maxlength="30" onFocus="this.style.color='blue'" onBlur="this.style.color='#333333'" <? echo ($dni != 0) ? "":"readonly" ?>>
+                                 <input type="text" name="usuarionombre" class="imputbox" maxlength="30" onFocus="this.style.color='blue'" onBlur="this.style.color='#333333'" <?php echo ($dni != 0) ? "":"readonly" ?>>
                                  <div id="iden" class="falta_dato" style="display:inline"></div>
                               </td>
                            </tr>
                            <tr>
                               <td>Contraseña:</td>
                               <td>
-                                 <input type="password" name="password1" class="imputbox" maxlength="10" onFocus="this.style.color='blue'" onBlur="this.style.color='#333333'" <? echo ($dni != 0) ? "":"readonly" ?>>
+                                 <input type="password" name="password1" class="imputbox" maxlength="10" onFocus="this.style.color='blue'" onBlur="this.style.color='#333333'" <?php echo ($dni != 0) ? "":"readonly" ?>>
                                  <div id="pass1" class="falta_dato" style="display:inline"></div>
                               </td>
                            </tr>
                            <tr>
                               <td>Contraseña (repetir):</td>
                               <td>
-                                 <input type="password" name="password2" class="imputbox" maxlength="10" onFocus="this.style.color='blue'" onBlur="this.style.color='#333333'" <? echo ($dni != 0) ? "":"readonly" ?>>
+                                 <input type="password" name="password2" class="imputbox" maxlength="10" onFocus="this.style.color='blue'" onBlur="this.style.color='#333333'" <?php echo ($dni != 0) ? "":"readonly" ?>>
                                  <div id="pass2" class="falta_dato" style="display:inline"></div>
                               </td>
                            </tr>
                            <tr>
                               <td>Nivel de Acceso:</td>
                               <td>
-                                 <select id="nivel" name="nivel" <? echo ($dni != 0) ? "":"disabled" ?>>
+                                 <select id="nivel" name="nivel" <?php echo ($dni != 0) ? "":"disabled" ?>>
                                     <option>Seleccione un nivel de usuario</option>                                    
                                     <option value="Z">Z - Super Usuario</option>
                                     <option value="N">N - Usuario Normal</option>                                    

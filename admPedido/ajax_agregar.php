@@ -6,7 +6,7 @@ require_once '../ClasesBasicas/ActiveRecordAbstractFactory.php';
 // Se requieren los script para acceder a los datos de la DB
 require_once '../ClasesBasicas/ActiveRecordAbstractFactory.php';
 require_once '../Clases/ActiveRecord/MysqlPedidoActiveRecord.php';
-require_once 'funciones.php';
+require_once '../includes/funciones.php';
 
 $oMysql = ActiveRecordAbstractFactory::getActiveRecordFactory(ActiveRecordAbstractFactory::MYSQL);
 $oMysql->conectar();

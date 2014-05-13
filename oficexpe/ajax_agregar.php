@@ -1,6 +1,6 @@
 <?php
 	require_once '../ClasesBasicas/ActiveRecordAbstractFactory.php';
-        require_once 'funciones.php';
+        require_once '../includes/funciones.php';
         
         $oMysql = ActiveRecordAbstractFactory::getActiveRecordFactory(ActiveRecordAbstractFactory::MYSQL);
         $oMysql->conectar();

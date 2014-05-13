@@ -17,7 +17,7 @@ require_once '../Clases/ActiveRecord/MysqlModeloActiveRecord.php';
 require_once '../Clases/ActiveRecord/MysqlEquipoActiveRecord.php';
 require_once '../Clases/ActiveRecord/MysqlUbicacionActiveRecord.php';
 require_once '../ClasesBasicas/CFecha.php';
-require_once 'funciones.php';
+require_once '../includes/funciones.php';
 
 $oMysql = ActiveRecordAbstractFactory::getActiveRecordFactory(ActiveRecordAbstractFactory::MYSQL);
 $oMysql->conectar();

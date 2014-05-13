@@ -15,27 +15,26 @@ require_once '../usuarios/aut_verifica.inc.php';
 <!-- wrap starts here -->
 <div id="wrap">
    <div id="header">
-      <h1 id="logo">orden<span class="gray">de</span>trabajo</h1>
-      <h2 id="slogan">Ministerio de Salud de Entre R&iacute;os - Dir. Bioingenieria</h2>
-      <br />
-      <span id="liveclock" >         
-      </span>
-      <div class="fechahoy">
-         <?php
-         include_once '../fecha.php';
-         print(fecha()."<br />");
-         
-         ?>
-      </div>
+       <h1 id="logo">Equipamiento<span class="gray">m&eacute;dico</span></h1>
+       <h2 id="slogan">Ministerio de Salud de Entre R&iacute;os - Dpto. Bioingenieria</h2>
+       <br />
+       <span id="liveclock" >         
+       </span>
+       <div class="fechahoy">
+           <?php
+           include_once '../fecha.php';
+           print(fecha()."<br />");
+           ?>
+        </div>
       <!-- Menu Tabs -->
       <ul>
-        <li id="current"><a href="<?php echo '../inicio/index.php'; ?>" ><span>Inicio</span></a></li>   
+        <li id="current"><a href="<?php echo '../ingresoz'; ?>" ><span>Inicio</span></a></li>   
          <li >
              <?php if($_SESSION['usuario_nivel']=='Z') { ?>
                 <a href="<?php echo '../ingresoz/index.php'; ?>"><span>Orden de Trabajo</span></a> </li>         
          <? } else {
               ?>
-            <a href="<?php echo '../ingreson/index.php'; ?>"><span>Incidentes</span></a> </li>         
+            <!--<a href="<?php // echo '../ingreson/index.php'; ?>"><span>Incidentes</span></a> </li>-->         
         <?php
          }
          ?>

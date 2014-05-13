@@ -2,7 +2,7 @@
 require_once '../ClasesBasicas/ActiveRecordAbstractFactory.php';
 require_once '../Clases/ActiveRecord/MysqlOrdenActiveRecord.php';
 require_once '../Clases/ActiveRecord/MysqlBloqueoActiveRecord.php';
-require_once 'funciones.php';
+require_once '../includes/funciones.php';
 
 $oMysql = ActiveRecordAbstractFactory::getActiveRecordFactory(ActiveRecordAbstractFactory::MYSQL);
 $oMysql->conectar();
