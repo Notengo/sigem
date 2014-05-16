@@ -6,7 +6,11 @@
 class EquipoValueObject {
     
 //   private $id, $cod_eq, $nro, $idTipo, $idMarca, $idModelo, $nroSerie, $detalle, $ordenCompra, $garantiaDesde, $garantiaFin, $fechaIng, $edad, $manual, $observacion, $usuarioAlta, $fechaAlta, $fechaBaja, $idProveedor, $ma, $kv, $alimentacion, $intensificador, $idAdquiriente;
-   private $id, $cod_eq, $nro, $idTipo, $idMarca, $idModelo, $nroSerie, $detalle, $idOrdenCompra, $fechaOrdenCompra, $garantiaFin, $fechaIng, $edad, $manual, $observacion, $idAdquiriente, $usuarioAlta, $fechaAlta, $usuarioBaja, $fechaBaja, $idProveedor;
+   private $id, $cod_eq, $nro, $idTipo, $idMarca, $idModelo, $nroSerie, 
+           $detalle, $idOrdenCompra, $fechaOrdenCompra, $garantiaFin, 
+           $fechaIng, $edad, $manual, $observacion, $idAdquiriente, 
+           $usuarioAlta, $fechaAlta, $usuarioBaja, $fechaBaja, $idProveedor, $inventario;
+   
    public function getId() {
        return $this->id;
    }
@@ -174,5 +178,11 @@ class EquipoValueObject {
    public function setIdProveedor($idProveedor) {
        $this->idProveedor = $idProveedor;
    }
+   public function getInventario() {
+       return $this->inventario;
+   }
+
+   public function setInventario($inventario) {
+       $this->inventario = $inventario;
+   }
 }
-?>

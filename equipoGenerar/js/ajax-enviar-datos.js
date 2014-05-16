@@ -98,6 +98,7 @@ function ver(e)
 
 function guardarDatos(){    
     divResultado = document.getElementById('resultado'); 
+    var inventario = document.getElementById('inventario').value;
     var nro = document.getElementById('nro').value;
     var codeqD = document.getElementById('codeq').value;    
     var codeq = document.getElementById('codeq_hidden').value;     
@@ -222,15 +223,15 @@ function guardarDatos(){
                     if(alimentacion!=0)
                         document.getElementById('alimentacion').style.border="2px solid red";                  
                     return false;
-               }
-           } else {                
-                if(alimentacion==0) {
-                    divMensaje.innerHTML= '<img src="../images/info.gif" />&nbsp;ATENCI&Oacute;N: Debe ingresar los datos del equipo RX';                                       
-                    document.getElementById('alimentacion').style.border="2px solid red";                
-                    return false;
+               } else {
+                   if(alimentacion==0) {
+                       divMensaje.innerHTML= '<img src="../images/info.gif" />&nbsp;ATENCI&Oacute;N: Debe ingresar los datos del equipo RX';                                       
+                        document.getElementById('alimentacion').style.border="2px solid red";                
+                        return false;
+                    }
                 }
-           }
-       }  
+            }
+        }
        
         if(anioH==anioD) {
             if(mesH==mesD) {
@@ -254,17 +255,30 @@ function guardarDatos(){
         //archivo que realizará la operacion
         ajax.open("POST", "guardaDatos.php" ,true);
         ajax.onreadystatechange=function() {
-        if (ajax.readyState==1){
-            divResultado.innerHTML= '<center><img src="../images/cargando.gif"><br/>Guardando los datos...</center>';
-        } else if (ajax.readyState==4) {
+            if (ajax.readyState === 1){
+                divResultado.innerHTML= '<center><img src="../images/cargando.gif"><br/>Guardando los datos...</center>';
+            } else if (ajax.readyState === 4) {
                 //mostrar los nuevos registros en esta capa
                 divResultado.innerHTML = ajax.responseText;
-                }
-        }
+            }
+        };
         //muy importante este encabezado ya que hacemos uso de un formulario
         ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
         //enviando los valores            
-        ajax.send("nro="+nro+"&codeq="+codeq+"&codeqD="+codeqD+"&marca="+marca+"&marcaD="+marcaD+"&modelo="+modelo+"&modeloD="+modeloD+"&nrose="+nrose+"&detalle="+detalle+"&edad="+edad+"&ofcodi="+ofcodi+"&ofcodiD="+ofcodiD+"&garantiaDesde="+garantiaDesde+"&garantiaHasta="+garantiaHasta+"&oc="+oc+"&proveedor="+proveedor+"&proveedorD="+proveedorD+"&manual="+manual+"&kv="+kv+"&ma="+ma+"&alimentacion="+alimentacion+"&intensificador="+intens+"&adquiriente="+adquiriente+"&servicio="+servicio+"&subservicio="+subservicio+"&eq_rx="+eq_rx);
+        ajax.send("nro="+nro+"&codeq="+codeq
+                +"&codeqD="+codeqD+"&marca="+marca
+                +"&marcaD="+marcaD+"&modelo="+modelo
+                +"&modeloD="+modeloD+"&nrose="+nrose
+                +"&detalle="+detalle+"&edad="+edad
+                +"&ofcodi="+ofcodi+"&ofcodiD="+ofcodiD
+                +"&garantiaDesde="+garantiaDesde+"&garantiaHasta="+garantiaHasta
+                +"&oc="+oc+"&proveedor="+proveedor
+                +"&proveedorD="+proveedorD+"&manual="+manual
+                +"&kv="+kv+"&ma="+ma+"&alimentacion="+alimentacion
+                +"&intensificador="+intens+"&adquiriente="+adquiriente
+                +"&servicio="+servicio+"&subservicio="+subservicio
+                +"&eq_rx="+eq_rx
+                +"&inventario="+inventario);
         return true;
     }
 }

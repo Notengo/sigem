@@ -40,7 +40,7 @@ class MysqlActiveRecordAbstractFactory extends ActiveRecordAbstractFactory
 
    const HOST = 'localhost';
    const USER = 'root';
-   const PASS = 'lepaBloski13';
+   const PASS = 'root';
    const DB = 'sigem';
 
    /**

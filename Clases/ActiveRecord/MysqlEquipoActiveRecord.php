@@ -189,29 +189,55 @@ class MysqlEquipoActiveRecord implements ActiveRecord{
     * @return boolean 
     */
    public function insert($oValueObject) {
-//      $sql = "INSERT INTO equipo (nro, uso, nombre, ip, idUsuario, observacion, usuarioAlta, tipo) VALUES (";
-//      $sql .= $oValueObject->getNro() . ", ";
-//      $sql .= $oValueObject->getUso() . ", '";
-//      $sql .= $oValueObject->getNombre() . "', '";
-//      $sql .= $oValueObject->getIp() . "', ";      
-//      $sql .= $oValueObject->getUsuario() . ", '";      
-//      $sql .= $oValueObject->getObservacion() . "', ";                  
-//      $sql .= $oValueObject->getUsuarioAlta().", " ;
-//      if($oValueObject->getTipo())
-//            $sql .= $oValueObject->getTipo() ;
-//      else $sql.=" 1 ";
-//      $sql.= " ) ";          
-//      if (mysql_query($sql))  {     
-//           $result = mysql_query("SELECT DISTINCT LAST_INSERT_ID() FROM equipo");
-//           $id = mysql_fetch_array($result);            
-//           if($id[0]<>0) {                        
-//                return $id[0];
-//           } else {
-//               return false;
-//           }    
-//      } else {     
-//            return false;
-//      }   
+      $sql = "INSERT INTO equipo (cod_eq, nro, idTipo, idMarca, idModelo, "
+              . "nroSerie, detalle, idOrdenCompra, garantiaFin, "
+              . "edad, manual, observacion, idAdquiriente, usuarioAlta, "
+              . "idProveedor, fechaAlta, inventario)"
+              . " VALUES ('";
+        $sql .= $oValueObject->getCod_eq() . "', ";
+        $sql .= $oValueObject->getNro() . ", ";
+        $sql .= "1, ";
+        $sql .= $oValueObject->getIdMarca() . ", '";      
+        $sql .= $oValueObject->getIdModelo() . "', '";      
+        $sql .= $oValueObject->getNroSerie() . "', '";                  
+        $sql .= $oValueObject->getDetalle()."', " ;
+        if($oValueObject->getIdOrdenCompra()!=''){
+            $sql .= $oValueObject->getIdOrdenCompra() . ", '";
+        } else {
+            $sql .= "0, '";
+        }
+
+//        $fechaD = explode("/", $oValueObject->getGarantiaDesde());
+//        $sql .= $fechaD[2]."-".$fechaD[1]."-".$fechaD[0]."', '";
+
+        $fechaH = explode("/", $oValueObject->getGarantiaFin());
+        $sql .= $fechaH[2]."-".$fechaH[1]."-".$fechaH[0]."', '";      
+
+        $sql .= $oValueObject->getEdad() . "', '";
+        $sql .= $oValueObject->getManual() . "', '";
+        $sql .= $oValueObject->getObservacion() . "', '";
+        $sql .= $oValueObject->getIdAdquiriente() . "', '";
+        $sql .= $oValueObject->getUsuarioAlta() . "', ";
+        if($oValueObject->getIdProveedor() != ''){
+            $sql .= $oValueObject->getIdProveedor() . ", ";
+        } else {
+            $sql .= "1, ";
+        }
+        $sql .= "now(),";
+        $sql .= $oValueObject->getInventario();
+        $sql.= " ) ";
+        echo $sql;
+        if (mysql_query($sql))  {     
+            $result = mysql_query("SELECT DISTINCT LAST_INSERT_ID() FROM equipo");
+            $id = mysql_fetch_array($result);            
+            if($id[0]<>0) {                        
+                return $id[0];
+            } else {
+                return false;
+            }    
+        } else {     
+            return false;
+        }
    }
 
    /**
@@ -270,4 +296,3 @@ class MysqlEquipoActiveRecord implements ActiveRecord{
       }
    }
 }
-?>

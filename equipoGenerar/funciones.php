@@ -37,8 +37,8 @@ function calculaedad($fechanacimiento){
 function calculafechanacimiento($edad){
     if($edad<>"") {    
     $anio  = date("Y") - $edad;
-    $mes = date("m") - $mes;
-    $dia = date("d") - $dia;    
+    $mes = date("m")/* - $mes*/;
+    $dia = date("d")/* - $dia*/;    
     return $anio."-".$mes."-".$dia;
     }
 }

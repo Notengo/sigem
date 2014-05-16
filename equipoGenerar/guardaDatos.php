@@ -17,7 +17,7 @@ require_once '../Clases/ActiveRecord/MysqlModeloActiveRecord.php';
 require_once '../Clases/ActiveRecord/MysqlEquipoActiveRecord.php';
 require_once '../Clases/ActiveRecord/MysqlUbicacionActiveRecord.php';
 require_once '../ClasesBasicas/CFecha.php';
-require_once '../includes/funciones.php';
+require_once 'funciones.php';
 
 $oMysql = ActiveRecordAbstractFactory::getActiveRecordFactory(ActiveRecordAbstractFactory::MYSQL);
 $oMysql->conectar();
@@ -44,23 +44,25 @@ $oEquipo->setIdModelo($_POST['modelo']);
 $oEquipo->setNroSerie($_POST['nrose']);
 $oEquipo->setDetalle($_POST['detalle']);
 $oEquipo->setEdad(calculafechanacimiento($_POST['edad']));
-$oEquipo->setGarantiaDesde($_POST['garantiaDesde']);
+//$oEquipo->setGarantiaDesde($_POST['garantiaDesde']);
 $oEquipo->setGarantiaFin($_POST['garantiaHasta']);
-$oEquipo->setOrdenCompra($_POST['oc']);
-$oEquipo->setIdProveedor($_POST['proveedor']);
+if(isset($_POST['oc'])) {$oEquipo->setIdOrdenCompra($_POST['oc']);}
+if(isset($_POST['proveedor'])) {$oEquipo->setIdProveedor($_POST['proveedor']);}
 $oEquipo->setManual($_POST['manual']);
-$oEquipo->setKv($_POST['kv']);
-$oEquipo->setMa($_POST['ma']);
-$oEquipo->setAlimentacion($_POST['alimentacion']);
-$oEquipo->setIntensificador($_POST['intensificador']);
+//$oEquipo->setKv($_POST['kv']);
+//$oEquipo->setMa($_POST['ma']);
+//$oEquipo->setAlimentacion($_POST['alimentacion']);
+//$oEquipo->setIntensificador($_POST['intensificador']);
 $oEquipo->setIdAdquiriente($_POST['adquiriente']);
+$oEquipo->setInventario($_POST['inventario']);
 $error=0;
+
 if($verEquipo) {   
 // si el equipo existe modifica
     mysql_query("begin;");
     if($oMysqlEquipo->update($oEquipo)==false)
         $error=3;   
-    
+    echo $error . "<br>";
     $verEquipoRX = $oMysqlEquipo->findRX($oEquipo);    
     // guarda el equipo rx
     if($_POST['eq_rx']<>'N') {
@@ -77,6 +79,7 @@ if($verEquipo) {
                 $error=3;  
         }
     }
+    echo $error . "<br>";
 } else {
 // inserta nuevo equipo
     mysql_query("begin;");
@@ -104,7 +107,7 @@ if($verEquipo) {
         $oMysqlUbicacion->insert($oUbicacion);
     }
 }
-
+echo $error . "<br>";
 switch ($error) {
     case 0:
         mysql_query("COMMIT;");                  

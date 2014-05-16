@@ -3,8 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file://10.106.1.11/c/xampp/htdocs/sigem/equipoGenerar/index.php</file>
-            <file>file://10.106.1.11/c/xampp/htdocs/sigem/equipoGenerar/lista_nomencl.php</file>
+            <file>file:/C:/xampp/htdocs/sigem/equipoGenerar/js/ajax-enviar-datos.js</file>
+            <file>file:/C:/xampp/htdocs/sigem/equipoGenerar/guardaDatos.php</file>
+            <file>file:/C:/xampp/htdocs/sigem/equipoGenerar/funciones.php</file>
+            <file>file:/C:/xampp/htdocs/sigem/Clases/ActiveRecord/MysqlEquipoActiveRecord_22012014.php</file>
+            <file>file:/C:/xampp/htdocs/sigem/Clases/ActiveRecord/MysqlEquipoActiveRecord.php</file>
+            <file>file:/C:/xampp/htdocs/sigem/equipoGenerar/index.php</file>
+            <file>file:/C:/xampp/htdocs/sigem/Clases/ValueObject/EquipoValueObject.php</file>
         </group>
     </open-files>
 </project-private>

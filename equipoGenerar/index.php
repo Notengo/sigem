@@ -176,8 +176,16 @@ if(!isset($_GET['cambio'])) {
                                 ?>
                                 <p>
                                     <?php $tabindex++; ?>
-                                    <label for="numero" class="detalle">N&uacute;mero:</label>
+                                    <!--<label for="numero" class="detalle">N&uacute;mero:</label>-->
+                                    <label for="numero" class="detalle">N&ordm; T&eacute;cnico:</label>
                                     <input type="text" name="nro" id="nro" class="imputbox" onKeyPress="return esInteger(event)"  maxlength="150" size="9" onFocus="this.style.color='blue'" onBlur="this.style.color='#333333'" value="<?php echo $nro ?>" tabindex="<?php echo $tabindex;?>" onChange="javascript:window.location='index.php?cambio=1&nro='+this.value" value="<?php echo $nro; ?>" />*
+                                    <br/>
+                                    <?php $tabindex++; ?>
+                                    <label for="inventario" class="detalle">N&ordm; Inventario:</label>    
+                                    <input type="text" id="inventario" name="inventario" 
+                                           value="<?php if(isset($inventario)) {echo $inventario;} ?>" size="10"
+                                           onFocus="this.style.color='blue'" onBlur="this.style.color='#333333'"
+                                           tabindex="<?php echo $tabindex;?>" placeholder="nro inventario" />
                                     <br/>
                                     <?php
                                     if($soloVer==0) {
@@ -283,8 +291,8 @@ if(!isset($_GET['cambio'])) {
                                         $tabindex++;
                                         ?>
                                         <label for="adquiriente" class="detalle">Adquiriente:</label>
-                                        <input type="text" id="adquiriente" name="adquiriente" value="<?php if(isset($adquiriente)) echo $adquiriente; ?>" onKeyUp="ajax_showOptionsAdquiriente(this,'getAdquirienteByLetters',event)" size="65" onFocus="this.style.color='blue'" onBlur="this.style.color='#333333'" tabindex="<?php echo $tabindex;?>" />
-                                        <input type="hidden" id="adquiriente_hidden" name="adquiriente_ID" value="<?php echo $idAdquiriente; ?>"/>            
+                                    <input type="text" id="adquiriente" name="adquiriente" value="<?php if(isset($adquiriente)) {echo $adquiriente;} ?>" onKeyUp="ajax_showOptionsAdquiriente(this,'getAdquirienteByLetters',event)" size="65" onFocus="this.style.color='blue'" onBlur="this.style.color='#333333'" tabindex="<?php echo $tabindex;?>" />
+                                    <input type="hidden" id="adquiriente_hidden" name="adquiriente_ID" value="<?php if(isset($idAdquiriente)) {echo $idAdquiriente;} ?>"/>
                                         <a href="javascript: fn_mostrar_frm_agregar_adquiriente();" ><img src="../css/img_estilos/add.png" ></a>   
                                         <br/>
                                         <?php $tabindex++; ?>       
@@ -309,7 +317,7 @@ if(!isset($_GET['cambio'])) {
                                         <?php $tabindex++; ?>        
                                         <label for="oficina" class="detalle">Proveedor:</label>    
                                         <input type="text" id="proveedor" name="proveedor" value="<?php if(isset($proveed)) echo $proveed?>" onKeyUp="ajax_showOptionsProveedor(this,'getProveedorByLetters',event)" size="65" onFocus="this.style.color='blue'" onBlur="this.style.color='#333333'" tabindex="<?php echo $tabindex;?>" />
-                                        <input type="hidden" id="proveedor_hidden" name="proveedor_ID" value="<?php echo $proveedId?>" /><br/>    
+                                        <input type="hidden" id="proveedor_hidden" name="proveedor_ID" value="<?php if(isset($proveedId)) {echo $proveedId;} ?>" /><br/>    
                                         <br/>
                                     <?php
                                     } else {
