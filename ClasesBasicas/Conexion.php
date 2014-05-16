@@ -15,7 +15,7 @@ class Conexion  // se declara una clase para hacer la conexion con la base de da
 
     // se definen los datos del servidor de base de datos
     //public function Conexion($server='10.106.20.3',$user='root',$pass='root')	{
-	public function Conexion($server='localhost',$user='root',$pass='root')	{
+	public function Conexion($server='localhost',$user='root',$pass='lepaBloski13')	{
 
         // crea la conexion pasandole el servidor , usuario y clave
         if (!($conect=mysql_connect($server,$user,$pass)))
